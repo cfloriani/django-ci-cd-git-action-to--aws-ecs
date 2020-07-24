@@ -7,5 +7,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Install application
 COPY . ./
 # Run application
-EXPOSE 8000
-CMD python runserver
+CMD python manage.py collectstatic 
