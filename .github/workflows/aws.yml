@@ -60,13 +60,13 @@ jobs:
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
         task-definition: task-definition.json
-        container-name: ecs-sks-repository
+        container-name: ecs-sks-container
         image: ${{ steps.build-image.outputs.image }}
 
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
-        service: ecs-sks-repository
+        service: ecs-sks-service
         cluster: ecs-sks-cluster
         wait-for-service-stability: true
